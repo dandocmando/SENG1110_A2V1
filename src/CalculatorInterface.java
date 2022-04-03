@@ -47,6 +47,8 @@ public class CalculatorInterface
         System.out.println("Per week: $"+client.calcWeeklyNet());
         System.out.println("Per year: $"+client.calcNet()+"\n");
 
+        System.out.println("Medicare Levy Per Year: $"+client.calcMedicare());
+
      }
     
   
