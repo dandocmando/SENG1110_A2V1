@@ -2,7 +2,7 @@
 Author: Daniel Ferguson
 Auth ID: 3374690
 Date: 2/04/2022
-Description: Client Class
+Description: Client Class, calculates all the users tax
 SENG1110 Programming Assignment 1
  */
 import java.math.BigDecimal; // used to round vars to 2 dec places for weekly calc
@@ -63,16 +63,21 @@ public class Client
 
     //Weekly calculation section
     //calculates weekly gross by dividing yearly gross by 52
-    public BigDecimal calcWeeklyGross(){ double weeklyGross = grossSalary / 52;
-        return new BigDecimal(weeklyGross).setScale(2, RoundingMode.HALF_EVEN);
+    public double calcWeeklyGross(){ double weeklyGross = grossSalary / 52;
+        return new BigDecimal(weeklyGross).setScale(2, RoundingMode.HALF_EVEN).doubleValue();
     }
     //calculates weekly tax by dividing yearly tax by 52
-    public BigDecimal calcWeeklyTax(){ double weeklyTax = calcTax() / 52;
-        return new BigDecimal(weeklyTax).setScale(2, RoundingMode.HALF_EVEN);
+    public double calcWeeklyTax(){ double weeklyTax = calcTax() / 52;
+        return new BigDecimal(weeklyTax).setScale(2, RoundingMode.HALF_EVEN).doubleValue();
     }
     // calculates weekly net earnings by dividing yearly net by 52
-    public BigDecimal calcWeeklyNet(){ double weeklyNet = (grossSalary - (calcMedicare() + calcTax())) / 52;
-        return new BigDecimal(weeklyNet).setScale(2,RoundingMode.HALF_EVEN);
+    public double calcWeeklyNet(){ double weeklyNet = (grossSalary - (calcMedicare() + calcTax())) / 52;
+        return new BigDecimal(weeklyNet).setScale(2,RoundingMode.HALF_EVEN).doubleValue();
+    }
+
+    public double calcPossibleInvestment(){ double weeklyNet = calcWeeklyNet();  //doubleValue converts BigDecimal to double
+        // BigDecimal is only used to round -> safe to swap back to double
+        return new BigDecimal(weeklyNet-weeklyExpenses-(calcMedicare()/52)).setScale(2,RoundingMode.HALF_EVEN).doubleValue();
     }
 
     //Setter and Getter section
@@ -84,6 +89,11 @@ public class Client
 
     public boolean getResident(){ return (resident);}
     public void setResident(boolean inputResident){resident = inputResident;}
+
+    public double getWeeklyExpenses(){ return weeklyExpenses;}
+    public void setWeeklyExpenses(double inputExpenses){weeklyExpenses = inputExpenses;}
+
+    //public double getPossibleInvestment(){ return calcPossibleInvestment();}
 
 
     
