@@ -92,7 +92,7 @@ public class CalculatorInterface
             //console.nextLine();
             account.setNum_wks(invest_weeks);
         }
-        System.out.println(account.getinvRate());
+        //System.out.println(account.getinvRate());
         System.out.println(account.calcInv());
 
 

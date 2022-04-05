@@ -11,12 +11,10 @@ import java.math.RoundingMode;
 
 public class Account
 {
-    double inv_rate;
-    int num_wks;
-    int n = 52;
-    double inv;
-    double t = 1; // if we wanted to calculate investment over multiple years this would be used
- 
+    private double inv_rate; // investment rate as a % (0.29)
+    private int num_wks; // number of weeks the investment stays invested
+    private double inv; // value of weekly contribution
+
    // constructor
     public Account()
     {
@@ -24,13 +22,19 @@ public class Account
     }
     public double calcInv(){
         double FV; // value of investment, means Future Value
-        //TA = inv*(1+(inv_rate/100)/numberOfWeeks)*Math.pow(51,1); // previous attempts at creating algo
-        //TA = Math.pow((1+inv_rate/12), 12)+(Math.pow((1+inv_rate/12), 12)-1)/(inv_rate/12);
-        //A = ((Math.pow((1+(inv_rate/12)), 12)*inv-1) / (inv_rate/12)) + 5*Math.pow((1+(inv_rate/12)), 12);
+        double t = 1; // if we wanted to calculate investment over multiple years this would be used
+        int n = 52; // number of weeks in a year, I have used simple var names to condense the FV line
+
+        //FA = inv*(1+(inv_rate/100)/numberOfWeeks)*Math.pow(51,1); // previous attempts at creating algo
+        //FA = Math.pow((1+inv_rate/12), 12)+(Math.pow((1+inv_rate/12), 12)-1)/(inv_rate/12);
+        //FA = ((Math.pow((1+(inv_rate/12)), 12)*inv-1) / (inv_rate/12)) + 5*Math.pow((1+(inv_rate/12)), 12);
+
         FV = inv*((Math.pow((1+inv_rate/n),(num_wks*t))-1)/(inv_rate/n))*(1+inv_rate/n);
         // a very complicated ( yet far superior) way of finding the compound interest from
         // regular contributions. This was the hardest part of the assignment to create.
         // this formula compounds weekly and can calculate the value from 1 to 52 weeks.
+        // also calculates assuming that the contribution is made at the start of each week.
+
         return new BigDecimal(FV).setScale(2, RoundingMode.HALF_EVEN).doubleValue();
     }
      
