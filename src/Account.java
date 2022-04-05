@@ -21,7 +21,7 @@ public class Account
 
     }
     public double calcInv(){
-        double FV; // value of investment, means Future Value
+        double FV; // value of investment after it's been compounded, means Future Value
         double t = 1; // if we wanted to calculate investment over multiple years this would be used
         int n = 52; // number of weeks in a year, I have used simple var names to condense the FV line
 
