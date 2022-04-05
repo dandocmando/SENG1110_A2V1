@@ -73,24 +73,24 @@ public class CalculatorInterface
             }
         }
 
-        System.out.println("Enter the investment rate as a %:");
+        System.out.print("Enter the investment rate as a %: ");
         double inv_rate;
         inv_rate = console.nextDouble();
-        console.nextLine();
+        //console.nextLine();
         account.setinvRate(inv_rate);
 
-        System.out.println("Would you like to invest for a entire year?");
-        System.out.print("Enter Y or N:");
+        System.out.println("Would you like to invest for an entire year?");
+        System.out.print("Enter Y or N: ");
         String invest_year = console.next();
 
         if(Objects.equals(invest_year, "Y")){
-            account.setNumberOfWeeks(52);
+            account.setNum_wks(52); // assigns weeks to 52 as that is an entire year in wks
         }
         else{
             System.out.print("Enter the number of weeks you would like to invest for: ");
             int invest_weeks = console.nextInt();
-            console.nextLine();
-            account.setNumberOfWeeks(invest_weeks);
+            //console.nextLine();
+            account.setNum_wks(invest_weeks);
         }
         System.out.println(account.getinvRate());
         System.out.println(account.calcInv());
