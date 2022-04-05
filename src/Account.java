@@ -1,7 +1,7 @@
 /*
 Author: Daniel Ferguson
 Auth ID: 3374690
-Date: 2/04/2022
+Date: 5/04/2022
 Description: Account Class, calculates the user investment
 SENG1110 Programming Assignment 1
  */
