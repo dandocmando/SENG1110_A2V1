@@ -14,11 +14,12 @@ public class CalculatorInterface
     public void run()
     {
         Scanner console = new Scanner (System.in);
-	Client client;
-        
-	client = new Client();
-    Account account;
-    account = new Account();
+	//Client client;
+	//client = new Client();
+    //Account account;
+    //account = new Account();
+    Client client = new Client();
+    Account account = new Account();
         System.out.print("First name: ");
         String first_name = console.next();
         System.out.print("Last Name: ");
@@ -94,11 +95,6 @@ public class CalculatorInterface
         }
         //System.out.println(account.getinvRate());
         System.out.println(account.calcInv());
-
-
-
-
-
      }
     
   
