@@ -93,7 +93,6 @@ public class Client
     public double getWeeklyExpenses(){ return weeklyExpenses;}
     public void setWeeklyExpenses(double inputExpenses){weeklyExpenses = inputExpenses;}
 
-    //public double getPossibleInvestment(){ return calcPossibleInvestment();}
 
 
     

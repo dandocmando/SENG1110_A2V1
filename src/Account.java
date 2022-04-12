@@ -38,7 +38,7 @@ public class Account
         return new BigDecimal(FV).setScale(2, RoundingMode.HALF_EVEN).doubleValue();
     }
 
-    public void setinvRate(double inputRate){ inv_rate = inputRate/100;}
+    public void setinv_Rate(double inputRate){ inv_rate = inputRate/100;}
     public double getinvRate()
     {
         return(inv_rate);
@@ -47,8 +47,7 @@ public class Account
     public void setInv(double inputInvestment){ inv = inputInvestment;}
     public double getInv(){return inv;}
 
-    public void setNum_wks(int inputWeeks){
-        num_wks = inputWeeks;}
+    public void setNum_wks(int inputWeeks){ num_wks = inputWeeks;}
     public int getNum_wks(){return num_wks;}
 
     

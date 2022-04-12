@@ -14,10 +14,6 @@ public class CalculatorInterface
     public void run()
     {
         Scanner console = new Scanner (System.in);
-	//Client client;
-	//client = new Client();
-    //Account account;
-    //account = new Account();
     Client client = new Client();
     Account account = new Account();
         System.out.print("First name: ");
@@ -55,21 +51,19 @@ public class CalculatorInterface
         System.out.println("enter your weekly expenses: ");
         double weeklyExpenses = console.nextDouble();
         client.setWeeklyExpenses(weeklyExpenses);
-        System.out.println("Maximum possible investment: $"+client.calcPossibleInvestment());
+        System.out.println("Maximum possible investment weekly: $"+client.calcPossibleInvestment());
         System.out.print("Enter desired investment: ");
         double inv = console.nextDouble();
-        console.nextLine();
 
         boolean invAllowed = false;
         while(!invAllowed){
             if( inv > client.calcPossibleInvestment()){
                 System.out.print("Please enter an investment below $"+client.calcPossibleInvestment()+": ");
                 inv = console.nextDouble();
-                console.nextLine();
             }
             else{
                 invAllowed = true;
-                System.out.println("investment value accepted.");
+                System.out.println("Investment value accepted.");
                 account.setInv(inv);
             }
         }
@@ -77,8 +71,7 @@ public class CalculatorInterface
         System.out.print("Enter the investment rate as a %: ");
         double inv_rate;
         inv_rate = console.nextDouble();
-        //console.nextLine();
-        account.setinvRate(inv_rate);
+        account.setinv_Rate(inv_rate);
 
         System.out.println("Would you like to invest for an entire year?");
         System.out.print("Enter Y or N: ");
@@ -90,11 +83,10 @@ public class CalculatorInterface
         else{
             System.out.print("Enter the number of weeks you would like to invest for: ");
             int invest_weeks = console.nextInt();
-            //console.nextLine();
             account.setNum_wks(invest_weeks);
         }
-        //System.out.println(account.getinvRate());
-        System.out.println(account.calcInv());
+
+        System.out.println("\nInvestment value after "+account.getNum_wks()+" weeks: $"+account.calcInv());
      }
     
   
