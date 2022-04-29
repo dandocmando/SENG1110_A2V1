@@ -12,7 +12,8 @@ import java.util.*;
 public class CalculatorInterface
 {
     public void run() {
-        Scanner console = new Scanner(System.in);
+        // This is the main function all data is displayed in
+        Scanner console = new Scanner(System.in); // creates new Scanner object as console
         Client client = new Client(); // creates the required objects from Client & Account classes
         Account account = new Account();
         System.out.print("First name: ");
@@ -23,10 +24,20 @@ public class CalculatorInterface
         // it is impossible for the user to pass this point without entering a first and last name :)
         client.setName(name); // assigns the String name var in the client object with name var defined by user
 
-        System.out.print("Gross income: ");
+        System.out.print("Gross income: $");
         double gross = inputChecker_double(console.next()); // uses inputChecker method to verify if input is a double
+        boolean isPositive = false;
+        while(!isPositive){
+            if(gross < 0){
+                System.out.print("Please enter a value above 0: $");
+                gross = inputChecker_double(console.next());
+            }
+            else
+                isPositive = true;
+
+        }
         client.setGross(gross);
-        System.out.println(client.getGross()); // pulls the grossSalary var from the client object using the getGross getter method
+        //System.out.println(client.getGross()); // pulls the grossSalary var from the client object using the getGross getter method
 
         System.out.print("Resident: (Enter true or false)");
         // can't build a function for bool as the parsebool only accepts true, all other inputs default to false
@@ -69,7 +80,7 @@ public class CalculatorInterface
             System.out.print("Please enter a value above 0: $");
             weeklyExpenses = inputChecker_double(console.next());
         }
-        boolean spendingAllowed = false;
+        boolean spendingAllowed = false; // initialises the loop bool
         while(!spendingAllowed){ // loops until spendingAllowed = true
             if(client.calcWeeklyNet() < weeklyExpenses){ // checks if expenses is higher than weekly net
                 System.out.println("You currently spend more than your net earnings per week, would you like to enter a new value or end the program?");
@@ -82,13 +93,13 @@ public class CalculatorInterface
                         System.out.print("Please enter a value above 0: $");
                         newSpending = inputChecker_double(console.next());
                     }
-                    weeklyExpenses = newSpending;
+                    weeklyExpenses = newSpending; // assigns new weekly expenses from newSpending input
                 }
                 else
                     System.exit(0); // ends program
             }
             else
-                spendingAllowed = true;
+                spendingAllowed = true; // ends the loop
         }
 
         client.setWeeklyExpenses(weeklyExpenses);
@@ -125,7 +136,16 @@ public class CalculatorInterface
         } else {
             System.out.print("Enter the number of weeks you would like to invest for: ");
             int invest_weeks = inputChecker_int(console.next());
-            account.setNum_wks(invest_weeks);
+            boolean overYear = false;
+            while(!overYear){
+                if(invest_weeks > 52 || invest_weeks <= 0){ // checks if weeks is inside boundaries
+                    System.out.print("Please enter a number between 1-52 (weeks): ");
+                    invest_weeks = inputChecker_int(console.next());
+                }
+                else
+                    overYear = true; // ends loop
+            }
+            account.setNum_wks(invest_weeks); // allows the user to set custom number of weeks
         }
 
         System.out.println("\nInvestment value after " + account.getNum_wks() + " weeks: $" + account.calcInv());
@@ -140,7 +160,7 @@ public class CalculatorInterface
         boolean loop;
         String in = input;
 
-         //This is needed so if the user initially enters a double they aren't asked to re-enter it in the loop
+         //This is needed so if the user initially enters a double they aren't asked to re-enter it in the while loop
          try{
              inVar = Double.parseDouble(in);  // attempts to convert String into a double
              loop = false;  // the above line doesn't give an error then the loop isn't required
@@ -160,7 +180,7 @@ public class CalculatorInterface
                  System.out.println("That wasn't a double.");
              }
         }
-         return inVar;
+         return inVar; // returns value modified or not
      }
 
     public int inputChecker_int(String input){
@@ -196,8 +216,8 @@ public class CalculatorInterface
 
     public static void main(String[] args)
     {
-        CalculatorInterface calc = new CalculatorInterface();
-        calc.run();
+        CalculatorInterface calc = new CalculatorInterface(); // creates new CalculatorInterface object as calc
+        calc.run(); // runs run function inside calc object
     }
 }
         

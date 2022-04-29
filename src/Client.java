@@ -11,7 +11,6 @@ import java.math.RoundingMode;
 public class Client
 {
     private String name; // all instance variables have been set to private as requested
-    private Account savingAccount;
     private double grossSalary;
     private boolean resident;
     private double medicare;
@@ -90,8 +89,4 @@ public class Client
 
     public double getWeeklyExpenses(){ return weeklyExpenses;}
     public void setWeeklyExpenses(double inputExpenses){weeklyExpenses = inputExpenses;}
-
-
-
-    
 }
