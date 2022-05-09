@@ -1,9 +1,9 @@
 /*
 Author: Daniel Ferguson
 Auth ID: 3374690
-Date: 29/04/2022
+Date: 09/05/2022
 Description: Client Class, calculates the users tax and salary
-SENG1110 Programming Assignment 1
+SENG1110 Programming Assignment 2
  */
 import java.math.BigDecimal; // used to round vars to 2 dec places for weekly calc
 import java.math.RoundingMode;

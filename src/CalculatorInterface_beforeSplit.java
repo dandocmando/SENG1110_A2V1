@@ -6,10 +6,10 @@ Description: Calculator Interface Class, outputs all the calculations inside the
 SENG1110 Programming Assignment 2
  */
 
-import java.util.*;
+import java.util.Scanner;
 
 
-public class CalculatorInterface
+public class CalculatorInterface_beforeSplit
 {
     public void run() {
         // This is the main function all data is displayed in
@@ -210,40 +210,12 @@ public class CalculatorInterface
         }
         return inVar;
     }
-    public void menu(){
-
-    }
-
-    public void addClient(){
-
-
-    }
-    public void addAccount(){
-
-    }
-    public void delClient(){
-
-    }
-    public void delAccount(){
-
-    }
-
-    public void dispClient(){
-
-    }
-    public void dispAccount(){
-
-    }
-    public void dispAllClient(){
-
-    }
 
 
     public static void main(String[] args)
     {
-        CalculatorInterface calc = new CalculatorInterface(); // creates new CalculatorInterface object as calc
-        //calc.run(); // runs run function inside calc object
-        calc.menu();
+        CalculatorInterface_beforeSplit calc = new CalculatorInterface_beforeSplit(); // creates new CalculatorInterface object as calc
+        calc.run(); // runs run function inside calc object
     }
 }
         
