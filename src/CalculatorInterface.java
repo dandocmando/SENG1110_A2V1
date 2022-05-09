@@ -211,10 +211,44 @@ public class CalculatorInterface
         return inVar;
     }
     public void menu(){
+        Scanner console = new Scanner(System.in); // creates new Scanner object as console
+        System.out.println("Menu:");
+        System.out.println("1. Add Client");
+        System.out.println("2. Delete Client");
+        System.out.println("3. Display Client");
+        System.out.print("Choice: ");
 
+        int menu_choice = console.nextInt();
+        switch (menu_choice) {
+            case 1 -> {
+                System.out.print("1");
+                addClient();
+            }
+            case 2 -> {
+                System.out.print("2");
+                delClient();
+            }
+            case 3 -> {
+                System.out.print("3");
+                dispClient();
+            }
+        }
     }
 
     public void addClient(){
+        Scanner console = new Scanner(System.in); // creates new Scanner object as console
+        Client client = new Client(); // creates the required objects from Client & Account classes
+        Account account = new Account();
+
+        System.out.print("Please enter your full name: ");
+        String nameIn = console.nextLine();
+        nameIn = client.isNameAllowed(nameIn); // passes name back into nameIn
+
+
+        client.setName(nameIn); // assigns the String name var in the client object with name var defined by user
+
+
+
 
 
     }
