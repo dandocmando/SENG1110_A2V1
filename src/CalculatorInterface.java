@@ -16,13 +16,11 @@ public class CalculatorInterface
         Scanner console = new Scanner(System.in); // creates new Scanner object as console
         Client client = new Client(); // creates the required objects from Client & Account classes
         Account account = new Account();
-        System.out.print("First name: ");
-        String first_name = console.next();
-        System.out.print("Last Name: ");
-        String last_name = console.next();
-        String name = first_name + " " + last_name; // due to the ban on arrays :/ I have resorted to this boring creation
-        // it is impossible for the user to pass this point without entering a first and last name :)
-        client.setName(name); // assigns the String name var in the client object with name var defined by user
+        System.out.print("Please enter your full name: ");
+        String nameIn = console.nextLine();
+        nameIn = client.isNameAllowed(nameIn); // passes name back into nameIn
+
+        client.setName(nameIn); // assigns the String name var in the client object with name var defined by user
 
         System.out.print("Gross income: $");
         double gross = inputChecker_double(console.next()); // uses inputChecker method to verify if input is a double
