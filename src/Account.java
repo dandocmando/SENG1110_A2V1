@@ -15,6 +15,11 @@ public class Account
     private int num_wks; // number of weeks the investment stays invested
     private double inv; // value of weekly contribution
 
+    public Account(){
+
+
+    }
+
 
     public double calcInv(){
         double FV; // value of investment after it's been compounded, means Future Value

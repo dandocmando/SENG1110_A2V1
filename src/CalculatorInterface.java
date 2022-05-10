@@ -8,7 +8,6 @@ SENG1110 Programming Assignment 2
 
 import java.util.*;
 
-
 public class CalculatorInterface
 {
     public void run() {
@@ -239,6 +238,8 @@ public class CalculatorInterface
         Scanner console = new Scanner(System.in); // creates new Scanner object as console
         Client client = new Client(); // creates the required objects from Client & Account classes
         Account account = new Account();
+        OpenCSVReader openCsvReader = new OpenCSVReader();
+
 
         System.out.print("Please enter your full name: ");
         String nameIn = console.nextLine();
